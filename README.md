@@ -48,16 +48,16 @@ This repository chronicles my progression through advanced SoC design concepts, 
 
 | Task                                                               | Description                                                                                        | Status |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------ |
-| [**Task&nbsp;1**](Day1/TASK_HKSPI_COMPLETE.md) | 📚 **HKSPI Architecture Understanding** - Comprehensive analysis of Caravel's housekeeping SPI: Study `hkspi_tb.v`, `housekeeping_spi.v` & `hkspi.hex`, understand I/O behavior & register expectations, document management SoC interaction with user project | ✅ Done |
-| [**Task&nbsp;2**](Day1/SKY130_RTL_SIMULATION_SOLUTION.txt) | ⚡ **RTL Simulation Execution** - Complete functional RTL simulation workflow: Compile testbench using Icarus Verilog, execute simulation & capture console output, verify "Test HK SPI (RTL) Passed" message, generate detailed `rtl_hkspi.log` file | ✅ Done |
-| [**Task&nbsp;3**](Day1/SKY130_WRAPPER_IMPLEMENTATION.txt) | 🔍 **GLS Matching & Validation** - Gate-level verification & comparison: Synthesize Caravel using Yosys for gate-level netlist, run GLS simulation with Sky130 timing models, verify "Test HK SPI (GL) Passed" output, perform line-by-line RTL vs GLS comparison | ✅ Done |
+| [**Task&nbsp;1**](Day1/TASK_HKSPI_COMPLETE.md) | 📚 **HKSPI Architecture Understanding** - Analyzed Caravel's housekeeping SPI interface, register mapping, and management core communication protocols | ✅ Done |
+| [**Task&nbsp;2**](Day1/SKY130_RTL_SIMULATION_SOLUTION.txt) | ⚡ **RTL Simulation Execution** - Compiled and executed HKSPI testbench using Icarus Verilog, verified "Test HK SPI (RTL) Passed" message | ✅ Done |
+| [**Task&nbsp;3**](Day1/SKY130_WRAPPER_IMPLEMENTATION.txt) | 🔍 **GLS Matching & Validation** - Synthesized Caravel with Yosys, ran gate-level simulation, achieved 100% RTL vs GLS behavioral matching | ✅ Done |
 
 ### 🌟 Key Learnings from Day 1
 
-* **HKSPI interface mastery**: Successfully analyzed Caravel's housekeeping SPI architecture with complete understanding of register mapping, I/O protocols, and management core-to-user project communication pathways.
-* **RTL simulation expertise**: Achieved perfect testbench compilation using Icarus Verilog with systematic verification of "Test HK SPI (RTL) Passed" output and comprehensive log generation.
-* **GLS verification excellence**: Completed end-to-end gate-level simulation using Yosys synthesis and Sky130 timing models with 100% RTL vs GLS behavioral matching validation.
-* **Caravel integration ready**: Design verification methodology established for housekeeping SPI interface, ensuring complete functional correctness and tape-out readiness assessment.
+* **HKSPI interface mastery**: Analyzed Caravel's housekeeping SPI architecture, register mapping, and management core communication protocols.
+* **RTL simulation expertise**: Successfully compiled and verified HKSPI testbench using Icarus Verilog with "Test HK SPI (RTL) Passed" confirmation.
+* **GLS verification excellence**: Achieved 100% RTL vs GLS behavioral matching using Yosys synthesis and Sky130 timing models.
+* **Caravel integration ready**: Established complete verification methodology for tape-out readiness assessment.
 
 
 ---
