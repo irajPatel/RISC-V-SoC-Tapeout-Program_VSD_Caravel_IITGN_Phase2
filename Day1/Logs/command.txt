@@ -1,0 +1,5 @@
+export PDK_ROOT=~/Desktop/
+export PDK=sky130A
+export GCC_PATH=~/riscv32-elf-ubuntu-24.04-gcc/riscv/bin
+export GCC_PREFIX=riscv32-unknown-elf
+

@@ -1,0 +1,51 @@
+# Yosys synthesis script for Caravel design with focus on hkspi
+# This script reads RTL, synthesizes to gate-level, and generates netlists
+
+# Read RTL Verilog files
+read_verilog -sv /home/iraj/VLSI/caravel/verilog/rtl/user_defines.v
+read_verilog -sv /home/iraj/VLSI/caravel/verilog/rtl/housekeeping_spi.v
+
+# Optionally read top-level module (uncomment if needed)
+# read_verilog -sv /home/iraj/VLSI/caravel/verilog/rtl/caravel_core.v
+# read_verilog -sv /home/iraj/VLSI/caravel/verilog/rtl/caravel.v
+
+# Hierarchy check
+hierarchy -check
+
+# High-level optimizations
+proc
+opt_clean
+check
+
+# Flatten hierarchy (optional - remove if you want to preserve module structure)
+flatten
+
+# Optimization pass
+opt
+memory
+opt_clean
+
+# Read Liberty technology file for gate-level synthesis
+# For SKY130: replace with your actual liberty file path
+# read_liberty -lib /path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Convert to gate-level (for now, keep as RTL since we may not have libs)
+# techmap -map /path/to/cellmap.v
+
+# Final optimization
+opt_clean
+
+# Generate reports
+stat -json /tmp/hkspi_stat.json
+stat
+
+# Write outputs
+write_verilog -noattr /tmp/hkspi_rtl_netlist.v
+write_verilog -attr2comment /tmp/hkspi_rtl_netlist_commented.v
+write_rtlil /tmp/hkspi_design.rtlil
+
+# Optional: Write in other formats
+# write_json /tmp/hkspi_design.json
+
+echo "===== Synthesis Complete ====="
+echo "RTL Netlist written to: /tmp/hkspi_rtl_netlist.v"

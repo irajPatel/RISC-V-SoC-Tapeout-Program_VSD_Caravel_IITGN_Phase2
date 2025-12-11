@@ -1,0 +1,421 @@
+================================================================================
+CARAVEL RTL SIMULATION - HOUSEKEEPING SPI SIGNAL FLOW ANALYSIS
+================================================================================
+Date: December 7, 2025
+Issue: hkspi_tb test reading 0xxx instead of valid register values
+
+================================================================================
+SECTION 1: TEST OVERVIEW
+================================================================================
+
+Test File: /home/iraj/VLSI/caravel/verilog/dv/caravel/mgmt_soc/hkspi/hkspi_tb.v
+
+Test Objective:
+- Read housekeeping SPI registers to verify management core functionality
+- Expected: Read valid product ID and other register values
+- Actual: Reading 0xxx (undefined/floating signals)
+
+Test Stimulus:
+1. Power up chip (VDD3V3, VDD1V8)
+2. Release reset (RSTB = 1)
+3. Send SPI commands via mprj_io pins:
+   - Cmd byte: 0x40 (read stream)
+   - Addr byte: 0x03 (product ID register)
+   - Read SDO (mprj_io[1])
+4. Expected SDO = 0x11 (product ID)
+5. Actual SDO = 0xxx (undefined)
+
+================================================================================
+SECTION 2: SIGNAL ROUTING IN TESTBENCH
+================================================================================
+
+Testbench Connections (hkspi_tb.v, lines 389-397):
+```
+wire hk_sck;
+wire hk_csb;
+wire hk_sdi;
+
+assign hk_sck = SCK;              // Test input SCK
+assign hk_csb = CSB;              // Test input CSB
+assign hk_sdi = SDI;              // Test input SDI
+
+assign mprj_io[4] = hk_sck;       // SCK on mprj_io[4]
+assign mprj_io[3] = hk_csb;       // CSB on mprj_io[3]
+assign mprj_io[2] = hk_sdi;       // SDI on mprj_io[2]
+assign SDO = mprj_io[1];          // Read SDO from mprj_io[1]
+```
+
+Key Point: The test uses GPIO pins (mprj_io[0-7]) for housekeeping SPI signals:
+- mprj_io[1] = SDO (output from chip)    <--- Test reads this, gets 0xxx
+- mprj_io[2] = SDI (input to chip)
+- mprj_io[3] = CSB (input to chip)
+- mprj_io[4] = SCK (input to chip)
+
+================================================================================
+SECTION 3: HARDWARE SIGNAL FLOW - CARAVEL HIERARCHY
+================================================================================
+
+Caravel Top Module (caravel.v):
+  |
+  ├─ caravel_clocking module
+  |   └─ Provides clock_core signal
+  |
+  └─ caravel_core module
+      │
+      ├─ Instantiates: housekeeping module
+      |   │
+      |   ├─ Instantiates: housekeeping_spi module (inside housekeeping.v)
+      |   |   │
+      |   |   ├─ Input: SCK = mgmt_gpio_in[4]
+      |   |   ├─ Input: SDI = mgmt_gpio_in[2]
+      |   |   ├─ Input: CSB = mgmt_gpio_in[3]
+      |   |   ├─ Output: SDO = sdo
+      |   |   ├─ Output: sdoenb = sdo_enb
+      |   |   ├─ Input: idata = odata (from housekeeping state machine)
+      |   |   └─ Output: odata = idata (to housekeeping state machine)
+      |   |
+      |   └─ State Machine generates:
+      |       ├─ Read strobes (rdstb)
+      |       ├─ Write strobes (wrstb)
+      |       ├─ Address outputs (iaddr)
+      |       └─ Data outputs (idata)
+      |
+      └─ GPIO Control Blocks (4 instances):
+          ├─ gpio_control_bidir_1 [1:0]
+          |   │ Handles GPIO 0-1 (including SDO pin)
+          |   ├─ Input: mgmt_gpio_out[1:0]
+          |   ├─ Input: mgmt_gpio_oeb[1:0]
+          |   ├─ Output: mprj_io_out[1:0]
+          |   ├─ Output: mprj_io_oeb[1:0]
+          |   └─ Connects to: pad GPIO control
+          │
+          └─ [Other GPIO blocks for pins 2-37]
+
+================================================================================
+SECTION 4: DETAILED SIGNAL FLOW FOR SDO (mprj_io[1])
+================================================================================
+
+Step 1: Housekeeping SPI Module (housekeeping_spi.v, line 754)
+────────────────────────────────────────────────────────────
+
+instantiation:
+    housekeeping_spi hkspi (
+        .reset(~porb),
+        .SCK(mgmt_gpio_in[4]),      ← SCK input from housekeeping
+        .SDI(mgmt_gpio_in[2]),      ← SDI input from housekeeping
+        .CSB((spi_is_enabled) ? mgmt_gpio_in[3] : 1'b1),
+        .SDO(sdo),                  ← OUTPUT: sdo signal
+        .sdoenb(sdo_enb),           ← OUTPUT: output enable
+        .idata(odata),              ← INPUT: data to transmit
+        .odata(idata),              ← OUTPUT: data received
+        .oaddr(iaddr),              ← OUTPUT: address
+        .rdstb(rdstb),              ← OUTPUT: read strobe
+        .wrstb(wrstb),              ← OUTPUT: write strobe
+        ...
+    );
+
+The housekeeping_spi module (housekeeping_spi.v):
+- Receives SPI commands on SCK, SDI, CSB
+- Deserializes commands to extract: command, address, data
+- Raises rdstb or wrstb to signal to housekeeping state machine
+- Waits for idata (input data) from housekeeping
+- Serializes idata onto SDO output
+
+CRITICAL: housekeeping_spi.v line 122 shows:
+    assign odata = {predata, SDI};
+    
+The SDO output is driven by shifting out bits from ldata register.
+On negedge SCK, if readmode==1, it loads idata into ldata and shifts out.
+
+Step 2: Housekeeping State Machine (housekeeping.v)
+─────────────────────────────────────────────────────
+
+The housekeeping module contains a large state machine that:
+- Reads SPI address from iaddr (provided by housekeeping_spi)
+- Looks up register values based on address
+- Provides register data via odata to housekeeping_spi's idata input
+
+For address 0x03 (product ID):
+- Should provide odata = 0x11
+
+Critical Function (housekeeping.v, lines ~350-450):
+    function [7:0] fdata(input [7:0] address);
+        case (address)
+            8'h03 : fdata = prod_id;    // Product ID register
+            ...
+        endcase
+    endfunction
+
+Where prod_id comes from:
+    assign prod_id = 8'h11;  (hardcoded or from mask_rev)
+
+Step 3: Housekeeping Output to GPIO (housekeeping.v, line 829)
+───────────────────────────────────────────────────────────────
+
+The sdo signal must be routed to GPIO output:
+
+    assign mgmt_gpio_out[1] = (pass_thru_mgmt) ? pad_flash_io1_di :
+                               (pass_thru_user) ? mgmt_gpio_in[11] :
+                               (spi_is_active) ? sdo :           ← HERE!
+                               mgmt_gpio_data[1];
+
+This is a 4-way MUX selecting which signal drives GPIO 1:
+- If pass_thru_mgmt: route flash IO1
+- Else if pass_thru_user: route GPIO 11
+- Else if spi_is_active: route sdo from housekeeping_spi  ← NORMAL CASE
+- Else: route mgmt_gpio_data[1]
+
+OUTPUT ENABLE for GPIO 1 (housekeeping.v, line 834):
+    assign mgmt_gpio_oeb[1] = (spi_is_active) ? sdo_enb : 
+                               ~gpio_configure[1][INP_DIS];
+
+When spi_is_active, output enable comes from sdo_enb (housekeeping_spi output)
+Otherwise, it's driven by GPIO configuration register
+
+Step 4: GPIO Output Control (housekeeping.v, line 632-633)
+────────────────────────────────────────────────────────────
+
+CRITICAL CONDITION FOR SDO ROUTING:
+
+    wire spi_is_active = spi_is_enabled && (mgmt_gpio_in[3] == 1'b0);
+    
+This means sdo is ONLY routed to GPIO output when BOTH:
+    1. spi_is_enabled == 1   (SPI subsystem enabled)
+    2. mgmt_gpio_in[3] == 0  (CSB is LOW - chip select active)
+
+spi_is_enabled definition (housekeeping.v, line 632):
+    wire spi_is_enabled = (~gpio_configure[3][INP_DIS]) & (~hkspi_disable);
+    
+This requires:
+    1. gpio_configure[3][INP_DIS] == 0  (GPIO pin 3 configured as input)
+    2. hkspi_disable == 0  (SPI not disabled)
+
+gpio_configure[] are configuration registers controlled by:
+    - Reset values (after porb)
+    - Wishbone bus writes from management SoC
+    - SPI register writes
+
+Step 5: GPIO Control Block (caravel_core.v, lines 1100-1160)
+──────────────────────────────────────────────────────────────
+
+gpio_control_bidir_1 [1:0] instantiation:
+
+    gpio_control_block gpio_control_bidir_1 [1:0] (
+        ...
+        .mgmt_gpio_in(mgmt_io_in[1:0]),
+        .mgmt_gpio_out(mgmt_io_out[1:0]),      ← Receives mgmt_io_out[1]
+        .mgmt_gpio_oeb(mgmt_io_oeb[1:0]),      ← Receives mgmt_io_oeb[1]
+        ...
+        .pad_gpio_outenb(mprj_io_oeb[1:0]),    ← Drives output enable
+        .pad_gpio_out(mprj_io_out[1:0]),       ← Drives pad output
+        .pad_gpio_in(mprj_io_in[1:0])          ← Reads pad input
+    );
+
+The GPIO control block:
+- Takes mgmt_gpio_out and mgmt_gpio_oeb signals
+- Applies GPIO configuration
+- Drives actual mprj_io_out and mprj_io_oeb signals
+
+Step 6: Chip I/O Pads (chip_io.v)
+──────────────────────────────────
+
+From caravel_clocking instantiation (caravel.v, line 236):
+    chip_io chip_io (
+        ...
+        .pad_gpio_outenb(mprj_io_oeb[1:0]),
+        .pad_gpio_out(mprj_io_out[1:0]),
+        ...
+        .gpio(mprj_io[1:0])
+    );
+
+The chip_io module:
+- Takes logical signals mprj_io_out, mprj_io_oeb from management core
+- Drives actual package I/O pins through tristate buffers
+- mprj_io[1] is the actual output pin available to testbench
+
+================================================================================
+SECTION 5: SIGNAL PATH SUMMARY
+================================================================================
+
+For SDO (mprj_io[1]) to output 0x11 correctly:
+
+1. Test drives: SCK, SDI, CSB via mprj_io[4], [2], [3]
+   
+2. chip_io passes these to caravel_core as: mprj_io_in signals
+
+3. gpio_control_block routes these to: mgmt_io_in signals
+
+4. housekeeping receives: mgmt_gpio_in[4], [2], [3]
+
+5. housekeeping_spi deserializes and strobes housekeeping state machine
+
+6. housekeeping state machine:
+   - Reads address 0x03
+   - Generates odata = prod_id = 0x11
+   - Holds this on odata for housekeeping_spi to serialize
+
+7. housekeeping_spi serializes 0x11 onto sdo output
+
+8. housekeeping module:
+   - Routes sdo to mgmt_gpio_out[1] IF spi_is_active == 1
+   - spi_is_active = spi_is_enabled AND (mgmt_gpio_in[3] == 0)
+
+9. gpio_control_block routes mgmt_gpio_out[1] to mprj_io_out[1]
+
+10. chip_io drives mprj_io[1] = mprj_io_out[1] with output enable
+
+11. Test reads: SDO = mprj_io[1] = 0x11
+
+================================================================================
+SECTION 6: ROOT CAUSE ANALYSIS - WHY 0xxx?
+================================================================================
+
+Reading 0xxx (all undefined bits) indicates the signal is FLOATING (not driven).
+
+Possible Root Causes:
+
+ROOT CAUSE 1: spi_is_active is FALSE
+───────────────────────────────────
+
+If spi_is_active == 0, then:
+    mgmt_gpio_out[1] = mgmt_gpio_data[1]  (fallback to stored data)
+
+After reset, mgmt_gpio_data[1] defaults to 0, but this would be 0x00, not 0xxx.
+
+If mgmt_gpio_out[1] is not driven at all:
+- gpio_configure[3][INP_DIS] might not be initialized to 0 after reset
+- This prevents spi_is_enabled from becoming 1
+- Then mgmt_gpio_out[1] might not have a valid driver
+
+ROOT CAUSE 2: gpio_configure not initialized properly
+──────────────────────────────────────────────────────
+
+After reset (~porb), gpio_configure[] registers should be initialized to defaults.
+The gpio_defaults_block is responsible for this (caravel_core.v, line 705):
+
+    gpio_defaults_block #(
+        .GPIO_CONFIG_INIT(13'h1803)  ← This sets register 0's default
+    ) gpio_defaults_block_0 (
+        .gpio_defaults(gpio_defaults[12:0])
+    );
+
+But there may be a timing issue:
+- porb signal from caravel_core might not be active yet
+- GPIO configuration might not have loaded default values
+- This affects whether gpio_configure[3][INP_DIS] is 0
+
+ROOT CAUSE 3: mgmt_io_out/oeb signals not connected to GPIO control
+──────────────────────────────────────────────────────────────────
+
+Signal concatenation in caravel_core.v, lines 691-696:
+
+    assign mgmt_gpio_out = mgmt_io_out_hk[(`MPRJ_IO_PADS_1-1):0];
+    assign mgmt_gpio_oeb = mgmt_io_oeb_hk[(`MPRJ_IO_PADS-4):0];
+    
+    assign mgmt_io_out_hk = {mgmt_gpio_out_buf, mgmt_io_out_hk[...]};
+    assign mgmt_io_oeb   = {mgmt_gpio_oeb_buf, mgmt_io_oeb_hk[...]};
+
+This is a circular/complex assignment. There might be:
+- A logic error in the bit slicing
+- Missing connections due to MPRJ_IO_PADS definitions
+- Index mismatch between housekeeping outputs and GPIO routing
+
+ROOT CAUSE 4: housekeeping_spi module not receiving proper stimulus
+───────────────────────────────────────────────────────────────────
+
+If the sdo output is still floating:
+- housekeeping_spi.sdoenb might be 1 (disabled driver)
+- Or the idata input to housekeeping_spi never gets the correct value
+- Or rdstb/wrstb strobes don't align properly with idata timing
+
+ROOT CAUSE 5: Clock synchronization issue
+─────────────────────────────────────────
+
+The housekeeping SPI operates on SCK (from test) and possibly caravel_clk.
+If there's a timing mismatch or metastability:
+- rdstb might not strobe at the right time
+- idata might not be valid when SDO is shifting
+- Results in X (undefined) on SDO
+
+ROOT CAUSE 6: porb (power-on reset) not functioning
+────────────────────────────────────────────────────
+
+All these systems depend on porb signal:
+- GPIO configuration loading
+- housekeeping state machine initialization
+- Reset of housekeeping_spi module
+
+porb comes from simple_por.v (Power-on Reset generator):
+- If simple_por is not properly initialized
+- Or if power supply signals (power1, power2) don't reach it
+- Then porb stays high, preventing normal operation
+
+================================================================================
+SECTION 7: KEY SIGNALS TO DEBUG
+================================================================================
+
+To trace the issue, monitor these signals during simulation:
+
+1. spi_is_active (housekeeping.v, line 633)
+   - Should go HIGH when CSB goes LOW
+   - If stays LOW, then spi_is_enabled == 0
+
+2. spi_is_enabled (housekeeping.v, line 632)
+   - Depends on: ~gpio_configure[3][INP_DIS] & ~hkspi_disable
+   - Check if gpio_configure[3][INP_DIS] is properly cleared
+
+3. gpio_configure[3][INP_DIS] (housekeeping.v, line 213)
+   - Should default to 0 after reset
+   - Check if gpio_defaults_block is working
+
+4. sdo (housekeeping_spi output)
+   - Should be driven when spi_is_active AND data is being clocked
+   - Check if sdo_enb is LOW (driver enabled)
+
+5. mgmt_gpio_out[1] (housekeeping.v, line 829)
+   - Should show sdo value when spi_is_active
+   - Check the MUX is selecting correct input
+
+6. mprj_io_out[1] (from gpio_control_block)
+   - Should show mgmt_gpio_out[1] after applying GPIO config
+   - Check GPIO control block configuration
+
+7. mprj_io[1] (at chip I/O pads)
+   - Final output
+   - Should match mprj_io_out[1] with output enable LOW
+
+================================================================================
+SECTION 8: NEXT STEPS FOR INVESTIGATION
+================================================================================
+
+1. Add VCD waveform traces for above signals in simulation
+2. Check if gpio_defaults properly initialize gpio_configure values
+3. Verify porb signal timing relative to power-up sequence
+4. Trace through housekeeping state machine to confirm register reads
+5. Check CLK domain crossings and CDC (Clock Domain Crossing) synchronization
+6. Verify MPRJ_IO_PADS and related constants are defined correctly
+7. Check if RTL simulation uses correct include files and netlists
+
+================================================================================
+CONCLUSION
+================================================================================
+
+The signal should flow:
+Test Input (mprj_io[4,3,2]) 
+  → chip_io pads 
+  → housekeeping_spi deserializer 
+  → housekeeping state machine 
+  → register lookup (prod_id = 0x11)
+  → housekeeping_spi serializer 
+  → sdo signal
+  → mgmt_gpio_out[1] MUX (if spi_is_active)
+  → gpio_control_block routing
+  → mprj_io_out[1]
+  → chip_io driver
+  → Test reads mprj_io[1] = 0x11
+
+Currently reading 0xxx indicates the sdo signal is not being driven onto
+mgmt_gpio_out[1], likely because spi_is_active is FALSE due to GPIO 
+configuration not being properly initialized after reset.
+
+================================================================================
