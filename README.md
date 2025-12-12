@@ -62,6 +62,27 @@ This repository chronicles my progression through advanced SoC design concepts, 
 
 ---
 
+## 📅 Day 2 — RISC-V SoC Functional & GLS Replication (SCL180)
+
+<div align="center">
+
+</div>
+
+| Task                                                               | Description                                                                                        | Status |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------ |
+| [**Task&nbsp;1**](Day2/readme.md#task-1-functional-rtl-simulation-completed) | ⚡ **Functional RTL Simulation** - Configured and executed complete HKSPI testbench simulation using SCL180 PDK, verified SoC functionality with clean waveforms | ✅ Done |
+| [**Task&nbsp;2**](Day2/readme.md#task-2-synthesis-flow-completed) | 🔧 **Synthesis Flow with DC Shell** - Mastered Synopsys Design Compiler usage, configured SCL180 libraries, achieved zero timing violations with comprehensive reports | ✅ Done |
+| [**Task&nbsp;3**](Day2/readme.md#task-3-gate-level-simulation-gls-completed) | 🎯 **Gate-Level Simulation** - Successfully executed GLS with modified netlist, validated RTL-to-gate behavioral equivalence, confirmed timing correlation | ✅ Done |
+
+### 🌟 Key Learnings from Day 2
+
+* **SCL180 PDK mastery**: Successfully configured and utilized SCL180 process design kit with Synopsys Design Compiler for professional synthesis flow.
+* **DC Shell expertise**: Gained hands-on experience with industry-standard synthesis tool, understanding library setup, constraints, and optimization techniques.
+* **Complete verification flow**: Established end-to-end verification methodology from RTL simulation through synthesis to gate-level validation.
+* **Professional documentation**: Created comprehensive technical documentation with synthesis reports, power analysis, and timing validation.
+
+---
+
 ---
 
 
