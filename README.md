@@ -83,10 +83,33 @@ This repository chronicles my progression through advanced SoC design concepts, 
 
 ---
 
+## 📅 Day 3 — Synopsys VCS + DC_TOPO Flow with SCL180 (Industry-Grade RTL & Synthesis)
+
+<div align="center">
+
+</div>
+
+| Task                                                               | Description                                                                                        | Status |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------ |
+| [**Task&nbsp;1**](Day3/Readme.md#task-1-functional-simulation-with-synopsys-vcs) | 🚀 **RTL Simulation with Synopsys VCS** - Migrated from Iverilog to industry-standard VCS, compiled RTL with proper VCS flags, generated VPD waveforms for functional verification | ✅ Done |
+| [**Task&nbsp;2**](Day3/Readme.md#️-task-2-synthesis-with-synopsys-dc_topo) | ⚙️ **Synthesis with DC_TOPO** - Implemented DC_TOPO (topology-based synthesis) for SCL180, generated gate-level netlist with optimization; compared DC_SHELL vs DC_TOPO methodologies | ✅ Done |
+| [**Task&nbsp;3**](Day3/Readme.md#-task-3-gate-level-simulation-gls-with-synopsys-vcs) | 🔍 **Gate-Level Simulation with VCS** - Executed GLS using Day2 synthesized netlist (DC_TOPO requires LEF files with physical awareness), verified RTL-GLS correlation using vpd2vcd conversion for GTKWave analysis | ✅ Done |
+
+### 🌟 Key Learnings from Day 3
+
+* **VCS Migration**: Replaced Iverilog with Synopsys VCS for 2-3× faster compilation with native executable output and proper VCS flags (`-full64 -sverilog -debug_access+all`).
+
+* **DC_SHELL vs DC_TOPO**: DC_SHELL performs library-based RTL-to-gate synthesis (Day2 approach). DC_TOPO requires LEF files for physical-aware synthesis; without them, Day2's DC_SHELL netlist was used for GLS verification instead.
+
+* **Waveform Conversion**: Transitioned VPD (binary) to VCD (text) using `vpd2vcd hkspi_gls.vpd hkspi.vcd` for GTKWave analysis (DVE unavailable in lab).
+
+* **Complete Tool Migration**: Eliminated all open-source tools, established industry-standard Synopsys flow with comprehensive synthesis reports (area, power, timing).
+
+* **Perfect RTL-GLS Correlation**: Verified functional equivalence with zero X-propagation on critical signals using integrated standard cell models and proper timing simulation.
+
 ---
 
-
-## 🙏 Acknowledgment  
+  
 
 I am thankful to [**Kunal Ghosh**](https://github.com/kunalg123) and Team **[VLSI System Design (VSD)](https://vsdiat.vlsisystemdesign.com/)** for the opportunity to participate in the ongoing **RISC-V SoC Tapeout Program**.  
 
