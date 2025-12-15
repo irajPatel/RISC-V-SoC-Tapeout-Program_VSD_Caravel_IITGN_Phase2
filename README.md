@@ -7,7 +7,7 @@
 [![SCL180](https://img.shields.io/badge/SCL180-PDK-28A745?style=for-the-badge)]()
 [![Phase](https://img.shields.io/badge/Phase-2-9B59B6?style=for-the-badge)]()
 
-*Building Silicon Dreams with Open Source Excellence*
+*Building Silicon Dreams *
 
 </div>
 
