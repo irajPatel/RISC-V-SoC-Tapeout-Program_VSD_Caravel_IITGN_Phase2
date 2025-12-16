@@ -109,6 +109,31 @@ This repository chronicles my progression through advanced SoC design concepts, 
 
 ---
 
+## 📅 Day 4 — POR Removal & External Reset Implementation (Advanced RTL Modification)
+
+<div align="center">
+
+</div>
+
+| Task                                                               | Description                                                                                        | Status |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------ |
+| [**Task&nbsp;1**](DUMMY_POR_SIGNAL_TRACE_FROM_TESTBENCH.md) | 📚 **POR Usage Analysis** - Comprehensive study and documentation of dummy_por usage across vsdcaravel.v, caravel_core.v, and housekeeping logic; mapped signal flow from testbench perspective | ✅ Done |
+| [**Task&nbsp;2**](POR_REMOVAL_IMPLEMENTATION_REPORT.md) | ⚡ **POR Circuit Removal & reset_n Implementation** - Complete elimination of dummy_por module, replaced with external reset_n signal; ensured all sequential logic resets explicitly and deterministically | ✅ Done |
+
+### 🌟 Key Learnings from Day 4
+
+* **Advanced RTL Architecture**: Successfully analyzed and modified complex hierarchical SoC design, tracing signals through multiple module levels (testbench → vsdcaravel → caravel_core → sub-modules).
+
+* **Signal Flow Mastery**: Documented complete dummy_por signal propagation including behavioral timing (500ns RC delay simulation) and dependency mapping across chip_io, caravel_clocking, and housekeeping modules.
+
+* **Reset Architecture Transformation**: Eliminated digital POR circuit and introduced explicit external reset_n (active-low) with deterministic timing, replacing behavioral delay with synchronous testbench control.
+
+* **Professional Modification Approach**: Implemented step-by-step changes with dependency verification, ensuring no floating ports while maintaining functional equivalence across all reset semantics.
+
+* **Industry-Grade Documentation**: Created comprehensive technical report with file paths, line numbers, before/after code comparisons, and complete verification methodology for complex RTL modifications.
+
+---
+
   
 
 I am thankful to [**Kunal Ghosh**](https://github.com/kunalg123) and Team **[VLSI System Design (VSD)](https://vsdiat.vlsisystemdesign.com/)** for the opportunity to participate in the ongoing **RISC-V SoC Tapeout Program**.  
