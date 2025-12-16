@@ -1,0 +1,239 @@
+Information: Building the design 'pc3d01_wrapper'. (HDL-193)
+Warning: Cannot find the design 'pc3d01_wrapper' in the library 'WORK'. (LBR-1)
+Information: Building the design 'pc3b03ed_wrapper'. (HDL-193)
+Warning: Cannot find the design 'pc3b03ed_wrapper' in the library 'WORK'. (LBR-1)
+Information: Building the design 'pt3b02_wrapper'. (HDL-193)
+Warning: Cannot find the design 'pt3b02_wrapper' in the library 'WORK'. (LBR-1)
+Information: Building the design 'ring_osc2x13'. (HDL-193)
+Warning:  File /home/rpatel/vsdRiscvScl180/synthesis/ring_osc2x13-verilog.pvl not found, or does not contain a usable description of ring_osc2x13. (ELAB-320)
+Presto compilation completed successfully.
+Information: Building the design 'dummy_scl180_conb_1'. (HDL-193)
+Warning:  File /home/rpatel/vsdRiscvScl180/synthesis/dummy_scl180_conb_1-verilog.pvl not found, or does not contain a usable description of dummy_scl180_conb_1. (ELAB-320)
+Presto compilation completed successfully.
+Warning: Unable to resolve reference 'pc3d01_wrapper' in 'chip_io'. (LINK-5)
+Warning: Unable to resolve reference 'pc3b03ed_wrapper' in 'chip_io'. (LINK-5)
+Warning: Unable to resolve reference 'pt3b02_wrapper' in 'chip_io'. (LINK-5)
+Warning: Unable to resolve reference 'pc3b03ed_wrapper' in 'mprj_io'. (LINK-5)
+Warning: Unable to resolve reference 'ring_osc2x13' in 'digital_pll'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_1803_0'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_1803_1'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_0'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0801'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_34'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_33'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_32'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_31'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_30'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_29'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_28'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_27'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_26'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_25'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_24'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_23'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_22'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_21'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_20'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_19'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_18'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_17'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_16'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_15'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_14'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_13'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_12'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_11'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_10'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_9'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_8'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_7'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_6'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_5'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_4'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_3'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_2'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_defaults_block_0403_1'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_36'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_35'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_34'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_33'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_32'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_31'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_30'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_29'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_28'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_27'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_26'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_25'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_24'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_23'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_22'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_21'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_20'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_16'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_15'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_14'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_13'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_12'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_11'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_10'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_9'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_8'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_7'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_6'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_5'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_4'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_3'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_2'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_control_block_1'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'user_id_programming_00000000'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'mprj_logic_high'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'mprj2_logic_high'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'mgmt_protect_hv'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_37'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_0'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_36'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_35'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_34'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_33'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_32'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_31'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_30'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_29'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_28'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_27'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_26'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_25'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_24'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_23'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_22'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_21'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_20'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_19'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_18'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_17'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_16'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_15'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_14'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_13'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_12'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_11'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_10'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_9'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_8'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_7'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_6'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_5'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_4'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_3'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_2'. (LINK-5)
+Warning: Unable to resolve reference 'dummy_scl180_conb_1' in 'gpio_logic_high_1'. (LINK-5)
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	chip_core/clock_ctrl/divider/syncN_reg[1]/CP chip_core/clock_ctrl/divider/syncN_reg[1]/Q chip_core/clock_ctrl/divider/U7/A1 chip_core/clock_ctrl/divider/U7/ZN chip_core/clock_ctrl/divider/U6/A1 chip_core/clock_ctrl/divider/U6/ZN chip_core/clock_ctrl/divider/U4/A2 chip_core/clock_ctrl/divider/U4/Z 
+Information: Timing loop detected. (OPT-150)
+	chip_core/clock_ctrl/divider/syncN_reg[2]/CP chip_core/clock_ctrl/divider/syncN_reg[2]/Q chip_core/clock_ctrl/divider/U7/A2 chip_core/clock_ctrl/divider/U7/ZN chip_core/clock_ctrl/divider/U6/A1 chip_core/clock_ctrl/divider/U6/ZN chip_core/clock_ctrl/divider/U4/A2 chip_core/clock_ctrl/divider/U4/Z 
+Warning: Disabling timing arc between pins 'CP' and 'Q' on cell 'chip_core/clock_ctrl/divider/syncN_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'QN' on cell 'chip_core/clock_ctrl/divider/syncN_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'Q' on cell 'chip_core/clock_ctrl/divider/syncN_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'QN' on cell 'chip_core/clock_ctrl/divider/syncN_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'Q' on cell 'chip_core/housekeeping/hkspi_disable_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'Q' on cell 'chip_core/housekeeping/gpio_configure_reg[3][3]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'Q' on cell 'chip_core/clock_ctrl/divider2/syncN_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'QN' on cell 'chip_core/clock_ctrl/divider2/syncN_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'Q' on cell 'chip_core/clock_ctrl/divider2/syncN_reg[2]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CP' and 'QN' on cell 'chip_core/clock_ctrl/divider2/syncN_reg[0]'
+         to break a timing loop. (OPT-314)
+ 
+****************************************
+Report : qor
+Design : vsdcaravel
+Version: T-2022.03-SP5
+Date   : Tue Dec 16 17:20:28 2025
+****************************************
+
+
+  Timing Path Group (none)
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.00
+  Critical Path Slack:         uninit
+  Critical Path Clk Period:       n/a
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:        168
+  Hierarchical Port Count:      15267
+  Leaf Cell Count:              23724
+  Buf/Inv Cell Count:            3146
+  Buf Cell Count:                 348
+  Inv Cell Count:                2803
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     17530
+  Sequential Cell Count:         6194
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:   313128.269899
+  Noncombinational Area:
+                        385412.699013
+  Buf/Inv Area:          24915.799936
+  Total Buffer Area:          6048.24
+  Total Inverter Area:       19196.86
+  Macro/Black Box Area:   1395.760063
+  Net Area:              28991.197819
+  -----------------------------------
+  Cell Area:            699936.728975
+  Design Area:          728927.926794
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         26882
+  Nets With Violations:             1
+  Max Trans Violations:             0
+  Max Cap Violations:               1
+  -----------------------------------
+
+
+  Hostname: nanodc.iitgn.ac.in
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                   12.93
+  Logic Optimization:                 11.29
+  Mapping Optimization:                5.34
+  -----------------------------------------
+  Overall Compile Time:               40.45
+  Overall Compile Wall Clock Time:    40.92
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
