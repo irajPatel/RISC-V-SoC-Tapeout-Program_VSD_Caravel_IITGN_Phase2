@@ -1356,44 +1356,6 @@ write -format verilog -output vsdcaravel_synthesis.v
 
 ---
 
-## 🎯 Deliverables Checklist
-
-- ✅ **VCS Functional Simulation**
-  - [x] RTL simulation completed successfully
-  - [x] FSDB waveform database generated
-  - [x] Functional verification passed all test vectors
-  - [x] Simulation logs documented
-
-- ✅ **DC_TOPO Synthesis**
-  - [x] RTL design synthesized to gate level
-  - [x] SCL180nm standard cell library used
-  - [x] Timing constraints applied and met
-  - [x] Area, power, and QoR reports generated
-  - [x] Synthesized netlist created (vsdcaravel_synthesis.v)
-  - [x] SDC constraint file generated
-
-- ✅ **VCS Gate-Level Simulation**
-  - [x] Gate-level netlist simulated with standard cell models
-  - [x] RTL blackbox modules (POR, RAM) integrated
-  - [x] GLS functionality matches RTL behavior
-  - [x] No X-propagation on critical signals
-  - [x] Timing behavior verified with gate delays
-
-- ✅ **Documentation & Evidence**
-  - [x] Comprehensive README.md this file
-  - [x] Synthesis reports (area, power, timing, QoR)
-  - [x] Waveform evidence (FSDB files)
-  - [x] Tool version documentation
-  - [x] Constraint files and scripts
-
-- ✅ **Open-Source Tool Removal**
-  - [x] iverilog references removed
-  - [x] gtkwave references removed
-  - [x] Makefile updated for Synopsys-only flow
-  - [x] All scripts converted to DC_TOPO and VCS
-
----
-
 ## 📚 References & Resources
 
 ### 🛠️ Synopsys Official Documentation
@@ -1419,12 +1381,6 @@ write -format verilog -output vsdcaravel_synthesis.v
 
 **Access Portal:** https://solvnet.synopsys.com/
 
-**Credentials:**
-```
-Username: contactvsd
-Password: Ak_270706
-OTP: Request via WhatsApp group
-```
 
 **Knowledge Base Topics:**
 - VCS simulation best practices
@@ -1476,5 +1432,4 @@ OTP: Request via WhatsApp group
 
 *This document represents the complete implementation of Day 3 task requirements for RISC-V SoC synthesis and verification using industry-standard Synopsys VCS and DC_TOPO tools with SCL180 PDK technology.*
 
-**Status**: ✅ Ready for submission  
-**Last Updated**: December 14, 2025 - 23:45 IST
+
