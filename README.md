@@ -134,6 +134,58 @@ This repository chronicles my progression through advanced SoC design concepts, 
 
 ---
 
+## 📅 Day 5 — Critical Design Error Analysis: SCL180 GPIO Failure Investigation
+
+<div align="center">
+
+</div>
+
+| Task                                                               | Description                                                                                        | Status |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------ |
+| [**Task&nbsp;1**](Day5/Files/GPIO_ROOT_CAUSE_ANALYSIS.md) | 🔍 **GPIO Failure Root Cause Analysis** - Systematic investigation of GPIO test failures, discovered critical signal disconnections in SCL180 pad connections and register mapping incompatibilities | ✅ Done |
+| [**Task&nbsp;2**](Day5/Files/SIGNAL_PATH_COMPARISON.md) | 📊 **Signal Path Tracing & Comparison** - Complete signal flow analysis from firmware (gpio.c) through RTL hierarchy to physical pads, identified "last mile" connection failures in mprj_io.v | ✅ Done |
+| [**Task&nbsp;3**](Day5/Files/CORE_SELECTION_COMPARISON.md) | ⚙️ **Architecture Analysis: PicoRV32 vs VexRiscv** - Comparative study of working (modular PicoRV32) vs failing (monolithic VexRiscv) implementations, documented defs.h register mapping issues | ✅ Done |
+
+### 🌟 Key Learnings from Day 5
+
+* **Critical Design Flaw Discovery**: Identified dual-layer failure in SCL180 adaptation - software register mapping mismatch (defs.h CSR vs RTL MMIO) and hardware signal disconnections (8 control signals never reaching pad cells).
+
+* **Professional Debug Methodology**: Performed industry-grade signal tracing from C firmware through Wishbone bus, housekeeping module, GPIO control blocks, to physical pad connections - identified exact failure points with file/line precision.
+
+* **HKSPI vs GPIO Failure Analysis**: Discovered why HKSPI passes (uses CSR interface that RTL supports) while GPIO fails (uses legacy MMIO registers that are broken + missing pad connections like .VTRIP_SEL port).
+
+* **Architecture Impact Assessment**: Documented how VexRiscv's monolithic auto-generated design (8473 lines) creates debugging complexity vs PicoRV32's modular approach (830 lines), affecting maintainability and tapeout readiness.
+
+* **Silicon Validation Concerns**: Proved through systematic analysis that this design is NOT production-ready - would fail in actual silicon due to GPIO pads having undefined input thresholds and missing control signal connections.
+
+---
+
+## 📅 Day 6 — Physical Design Implementation: ICC2 Floorplanning & Synthesis
+
+<div align="center">
+
+</div>
+
+| Task                                                               | Description                                                                                        | Status |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ------ |
+| [**Task&nbsp;1**](Day6/Task5_FloorPlan_ICC2/README.md) | 🏗️ **ICC2 Floorplan Setup & Configuration** - Configured Synopsys IC Compiler II for physical design implementation, established floorplan with proper die sizing, core utilization, and pin placement | ✅ Done |
+| [**Task&nbsp;2**](Day6/Understanding_tcl.md) | 📚 **Advanced TCL Scripting for ICC2** - Mastered complex TCL scripting for ICC2 automation, implemented design rule checking (DRC), power planning, and hierarchical design flow management | ✅ Done |
+| [**Task&nbsp;3**](Day6/Task5_FloorPlan_ICC2/reports/) | 📊 **Physical Design Analysis & Reports** - Generated comprehensive ICC2 reports including area utilization, congestion analysis, timing estimates, and power grid validation for SCL180 implementation | ✅ Done |
+
+### 🌟 Key Learnings from Day 6
+
+* **ICC2 Physical Design Mastery**: Successfully configured and utilized Synopsys IC Compiler II for advanced floorplanning, establishing proper die boundaries, core area definition, and pin placement strategies for complex SoC designs.
+
+* **Advanced TCL Automation**: Developed sophisticated TCL scripts for ICC2 automation including design rule checking (DRC), power planning methodologies, and hierarchical design flow management for improved design closure efficiency.
+
+* **Physical Design Analysis**: Generated comprehensive ICC2 analysis reports covering area utilization metrics, congestion hotspot identification, preliminary timing estimates, and power grid integrity validation.
+
+* **SCL180 Physical Implementation**: Applied physical design principles to SCL180 process technology, understanding technology file requirements, layer stack definitions, and design rule compliance for successful tapeout preparation.
+
+* **Industry-Standard Methodology**: Established complete physical design flow from RTL synthesis through floorplanning to placement preparation, following industry best practices for complex SoC implementation.
+
+---
+
   
 
 I am thankful to [**Kunal Ghosh**](https://github.com/kunalg123) and Team **[VLSI System Design (VSD)](https://vsdiat.vlsisystemdesign.com/)** for the opportunity to participate in the ongoing **RISC-V SoC Tapeout Program**.  
