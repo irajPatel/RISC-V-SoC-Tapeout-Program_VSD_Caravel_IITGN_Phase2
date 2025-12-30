@@ -1,0 +1,22 @@
+========================================
+Blackbox Modules Report
+========================================
+
+Date: Wed Dec 17 19:01:28 2025
+Design: vsdcaravel
+
+----------------------------------------
+Module: RAM128
+----------------------------------------
+  Design Status: PRESENT (blackbox)
+  Instance Count: 0 (not instantiated)
+
+----------------------------------------
+Module: RAM256
+----------------------------------------
+  Design Status: PRESENT (blackbox)
+  Instance Count: 0 (not instantiated)
+
+========================================
+End of Blackbox Report
+========================================

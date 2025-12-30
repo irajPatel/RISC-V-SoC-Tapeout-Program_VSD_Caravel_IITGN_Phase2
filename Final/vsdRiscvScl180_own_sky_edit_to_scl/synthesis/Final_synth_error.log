@@ -1,0 +1,897 @@
+[SCL] 12/17/2025 19:01:21 PID:16325 Client:nanodc.iitgn.ac.in Authorization failed Synopsys-Release 2022.03
+[SCL] 12/17/2025 19:01:23 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Authorization succeeded Design-Compiler 2022.03
+[SCL] 12/17/2025 19:01:23 Checking status for feature Design-Compiler
+[SCL] 12/17/2025 19:01:23 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Checkout succeeded Design-Compiler 2022.03
+[SCL] 12/17/2025 19:01:23 PID:16325 Client:nanodc.iitgn.ac.in Authorization failed Synopsys 2022.03
+[SCL] 12/17/2025 19:01:23 PID:16325 Client:nanodc.iitgn.ac.in Authorization failed DC-Debug 2022.03
+[SCL] 12/17/2025 19:01:23 PID:16325 Client:nanodc.iitgn.ac.in Authorization failed DC-NXT-DPX-Beta 2022.03
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version T-2022.03-SP5 for linux64 - Oct 11, 2022 
+
+                    Copyright (c) 1988 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+[SCL] 12/17/2025 19:01:24 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Authorization succeeded DC-Expert 2022.03
+# ========================================================================
+# Synopsys DC Synthesis Script for vsdcaravel
+# Modified to blackbox RAM128 and RAM256 modules
+# Based on golden TCL with minimal modifications
+# ========================================================================
+# ========================================================================
+# Load Technology Libraries
+# ========================================================================
+read_db "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db"
+Loading db file '/home/Synopsys/tools/syn/T-2022.03-SP5/libraries/syn/gtech.db'
+Loading db file '/home/Synopsys/tools/syn/T-2022.03-SP5/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Loading db file '/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db'
+Loaded 0 designs.
+read_db "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db"
+Loading db file '/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db'
+Loaded 0 designs.
+# ========================================================================
+# Set Library Variables
+# ========================================================================
+set target_library "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db"
+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db
+set link_library "* /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db"
+* /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db
+set_app_var target_library $target_library
+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db
+set_app_var link_library $link_library
+* /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db
+# ========================================================================
+# Define Directory Paths
+# ========================================================================
+set root_dir "/home/rpatel/vsdRiscvScl180"
+/home/rpatel/vsdRiscvScl180
+set io_lib "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero"
+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero
+set verilog_files "$root_dir/rtl"
+/home/rpatel/vsdRiscvScl180/rtl
+set top_module "vsdcaravel"
+vsdcaravel
+set output_file "$root_dir/synthesis/output/vsdcaravel_synthesis.v"
+/home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.v
+set report_dir "$root_dir/synthesis/report"
+/home/rpatel/vsdRiscvScl180/synthesis/report
+# ========================================================================
+# Configure Blackbox Handling for Memory Modules
+# ========================================================================
+puts "INFO: Configuring blackbox handling for RAM modules..."
+INFO: Configuring blackbox handling for RAM modules...
+set_app_var hdlin_infer_multibit default_none
+default_none
+set_app_var hdlin_auto_save_templates false
+false
+# ========================================================================
+# Create Blackbox Stub File for RAM Modules
+# ========================================================================
+set blackbox_file "$root_dir/synthesis/memory_blackbox_stubs.v"
+/home/rpatel/vsdRiscvScl180/synthesis/memory_blackbox_stubs.v
+set fp [open $blackbox_file w]
+file14
+puts $fp "// Blackbox definitions for memory modules"
+puts $fp "// Auto-generated by synthesis script"
+puts $fp ""
+puts $fp "(* blackbox *)"
+puts $fp "module RAM128(CLK, EN0, VGND, VPWR, A0, Di0, Do0, WE0);"
+puts $fp "  input CLK, EN0, VGND, VPWR;"
+puts $fp "  input \[6:0\] A0;"
+puts $fp "  input \[31:0\] Di0;"
+puts $fp "  input \[3:0\] WE0;"
+puts $fp "  output \[31:0\] Do0;"
+puts $fp "endmodule"
+puts $fp ""
+puts $fp "(* blackbox *)"
+puts $fp "module RAM256(VPWR, VGND, CLK, WE0, EN0, A0, Di0, Do0);"
+puts $fp "  input CLK, EN0;"
+puts $fp "  inout VPWR, VGND;"
+puts $fp "  input \[7:0\] A0;"
+puts $fp "  input \[31:0\] Di0;"
+puts $fp "  input \[3:0\] WE0;"
+puts $fp "  output \[31:0\] Do0;"
+puts $fp "endmodule"
+puts $fp ""
+close $fp
+puts "INFO: Created blackbox stub file: $blackbox_file"
+INFO: Created blackbox stub file: /home/rpatel/vsdRiscvScl180/synthesis/memory_blackbox_stubs.v
+# ========================================================================
+# Read Design Files
+# ========================================================================
+# Read defines first (as in golden script)
+puts "INFO: Reading defines.v..."
+INFO: Reading defines.v...
+read_file $verilog_files/defines.v
+Information: Inferring file format verilog based on file name extension(s). (UID-1034)
+Loading verilog file '/home/rpatel/vsdRiscvScl180/rtl/defines.v'
+Detecting input file type automatically (-rtl or -netlist).
+[SCL] 12/17/2025 19:01:24 Checking status for feature HDL-Compiler
+[SCL] 12/17/2025 19:01:24 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Checkout succeeded HDL-Compiler 2022.03
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /home/rpatel/vsdRiscvScl180/rtl/defines.v
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+No designs were read
+# Read blackbox stubs before any RTL
+puts "INFO: Reading memory blackbox stubs..."
+INFO: Reading memory blackbox stubs...
+read_file $blackbox_file -format verilog
+Loading verilog file '/home/rpatel/vsdRiscvScl180/synthesis/memory_blackbox_stubs.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/rpatel/vsdRiscvScl180/synthesis/memory_blackbox_stubs.v
+Presto compilation completed successfully.
+Current design is now '/home/rpatel/vsdRiscvScl180/synthesis/RAM128.db:RAM128'
+Loaded 2 designs.
+Current design is 'RAM128'.
+RAM128 RAM256
+# Read IO library with autoread (as in golden script)
+#puts "INFO: Reading IO library..."
+#read_file $io_lib -autoread -define USE_POWER_PINS -format verilog
+# Read scl180_wrapper with autoread (as in golden script)
+#puts "INFO: Reading scl180_wrapper..."
+#read_file $verilog_files/scl180_wrapper -autoread -define USE_POWER_PINS -format verilog
+# ========================================================================
+# Read Main RTL Files (Excluding RAM modules)
+# ========================================================================
+puts "INFO: Building RTL file list (excluding RAM128.v and RAM256.v)..."
+INFO: Building RTL file list (excluding RAM128.v and RAM256.v)...
+# Get all verilog files from rtl directory
+set all_rtl_files [glob -nocomplain ${verilog_files}/*.v]
+/home/rpatel/vsdRiscvScl180/rtl/clock_div.v /home/rpatel/vsdRiscvScl180/rtl/digital_pll.v /home/rpatel/vsdRiscvScl180/rtl/caravel.v /home/rpatel/vsdRiscvScl180/rtl/mprj2_logic_high.v /home/rpatel/vsdRiscvScl180/rtl/vsdcaravel.v /home/rpatel/vsdRiscvScl180/rtl/spiflash.v /home/rpatel/vsdRiscvScl180/rtl/picorv32.v /home/rpatel/vsdRiscvScl180/rtl/xres_buf.v /home/rpatel/vsdRiscvScl180/rtl/__user_project_gpio_example.v /home/rpatel/vsdRiscvScl180/rtl/constant_block.v /home/rpatel/vsdRiscvScl180/rtl/mgmt_protect.v /home/rpatel/vsdRiscvScl180/rtl/copyright_block_a.v /home/rpatel/vsdRiscvScl180/rtl/VexRiscv_MinDebugCache.v /home/rpatel/vsdRiscvScl180/rtl/gpio_signal_buffering_alt.v /home/rpatel/vsdRiscvScl180/rtl/__user_project_wrapper.v /home/rpatel/vsdRiscvScl180/rtl/__user_project_la_example.v /home/rpatel/vsdRiscvScl180/rtl/defines.v /home/rpatel/vsdRiscvScl180/rtl/chip_io.v /home/rpatel/vsdRiscvScl180/rtl/mgmt_core.v /home/rpatel/vsdRiscvScl180/rtl/caravel_netlists.v /home/rpatel/vsdRiscvScl180/rtl/buff_flash_clkrst.v /home/rpatel/vsdRiscvScl180/rtl/ibex_all.v /home/rpatel/vsdRiscvScl180/rtl/mprj_io_buffer.v /home/rpatel/vsdRiscvScl180/rtl/manual_power_connections.v /home/rpatel/vsdRiscvScl180/rtl/pt3b02_wrapper.v /home/rpatel/vsdRiscvScl180/rtl/dummy_schmittbuf.v /home/rpatel/vsdRiscvScl180/rtl/caravel_clocking.v /home/rpatel/vsdRiscvScl180/rtl/pc3d21.v /home/rpatel/vsdRiscvScl180/rtl/user_id_programming.v /home/rpatel/vsdRiscvScl180/rtl/open_source.v /home/rpatel/vsdRiscvScl180/rtl/gpio_signal_buffering.v /home/rpatel/vsdRiscvScl180/rtl/caravel_logo.v /home/rpatel/vsdRiscvScl180/rtl/RAM128.v /home/rpatel/vsdRiscvScl180/rtl/caravel_openframe.v /home/rpatel/vsdRiscvScl180/rtl/RAM256.v /home/rpatel/vsdRiscvScl180/rtl/empty_macro.v /home/rpatel/vsdRiscvScl180/rtl/dummy_scl180_conb_1.v /home/rpatel/vsdRiscvScl180/rtl/user_defines.v /home/rpatel/vsdRiscvScl180/rtl/user_id_textblock.v /home/rpatel/vsdRiscvScl180/rtl/mgmt_protect_hv.v /home/rpatel/vsdRiscvScl180/rtl/debug_regs.v /home/rpatel/vsdRiscvScl180/rtl/housekeeping.v /home/rpatel/vsdRiscvScl180/rtl/gpio_defaults_block.v /home/rpatel/vsdRiscvScl180/rtl/spare_logic_block.v /home/rpatel/vsdRiscvScl180/rtl/scl180_macro_sparecell.v /home/rpatel/vsdRiscvScl180/rtl/digital_pll_controller.v /home/rpatel/vsdRiscvScl180/rtl/primitives.v /home/rpatel/vsdRiscvScl180/rtl/mgmt_core_wrapper.v /home/rpatel/vsdRiscvScl180/rtl/mprj_io.v /home/rpatel/vsdRiscvScl180/rtl/copyright_block.v /home/rpatel/vsdRiscvScl180/rtl/mprj_logic_high.v /home/rpatel/vsdRiscvScl180/rtl/caravel_motto.v /home/rpatel/vsdRiscvScl180/rtl/pc3d01.v /home/rpatel/vsdRiscvScl180/rtl/pads.v /home/rpatel/vsdRiscvScl180/rtl/pc3b03ed.v /home/rpatel/vsdRiscvScl180/rtl/__uprj_netlists.v /home/rpatel/vsdRiscvScl180/rtl/__openframe_project_wrapper.v /home/rpatel/vsdRiscvScl180/rtl/ring_osc2x13.v /home/rpatel/vsdRiscvScl180/rtl/gpio_control_block.v /home/rpatel/vsdRiscvScl180/rtl/gpio_logic_high.v /home/rpatel/vsdRiscvScl180/rtl/__user_analog_project_wrapper.v /home/rpatel/vsdRiscvScl180/rtl/caravel_core.v /home/rpatel/vsdRiscvScl180/rtl/housekeeping_spi.v /home/rpatel/vsdRiscvScl180/rtl/caravel_power_routing.v
+# Define files to exclude
+set exclude_files [list \
+    "${verilog_files}/RAM128.v" \
+    "${verilog_files}/RAM256.v" \
+    "${verilog_files}/defines.v" \
+]
+/home/rpatel/vsdRiscvScl180/rtl/RAM128.v /home/rpatel/vsdRiscvScl180/rtl/RAM256.v /home/rpatel/vsdRiscvScl180/rtl/defines.v
+# Build list of files to read (excluding RAM modules and defines which was already read)
+set rtl_to_read [list]
+foreach file $all_rtl_files {
+    set excluded 0
+    foreach excl_file $exclude_files {
+        if {[string equal $file $excl_file]} {
+            set excluded 1
+            if {[string match "*RAM*.v" $file]} {
+                puts "INFO: Excluding $file (using blackbox instead)"
+            }
+            break
+        }
+    }
+    if {!$excluded} {
+        lappend rtl_to_read $file
+    }
+}
+INFO: Excluding /home/rpatel/vsdRiscvScl180/rtl/RAM128.v (using blackbox instead)
+INFO: Excluding /home/rpatel/vsdRiscvScl180/rtl/RAM256.v (using blackbox instead)
+puts "INFO: Reading [llength $rtl_to_read] RTL files..."
+INFO: Reading 61 RTL files...
+read_file $rtl_to_read -define USE_POWER_PINS -format verilog
+Loading verilog files: '/home/rpatel/vsdRiscvScl180/rtl/clock_div.v' '/home/rpatel/vsdRiscvScl180/rtl/digital_pll.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel.v' '/home/rpatel/vsdRiscvScl180/rtl/mprj2_logic_high.v' '/home/rpatel/vsdRiscvScl180/rtl/vsdcaravel.v' '/home/rpatel/vsdRiscvScl180/rtl/spiflash.v' '/home/rpatel/vsdRiscvScl180/rtl/picorv32.v' '/home/rpatel/vsdRiscvScl180/rtl/xres_buf.v' '/home/rpatel/vsdRiscvScl180/rtl/__user_project_gpio_example.v' '/home/rpatel/vsdRiscvScl180/rtl/constant_block.v' '/home/rpatel/vsdRiscvScl180/rtl/mgmt_protect.v' '/home/rpatel/vsdRiscvScl180/rtl/copyright_block_a.v' '/home/rpatel/vsdRiscvScl180/rtl/VexRiscv_MinDebugCache.v' '/home/rpatel/vsdRiscvScl180/rtl/gpio_signal_buffering_alt.v' '/home/rpatel/vsdRiscvScl180/rtl/__user_project_wrapper.v' '/home/rpatel/vsdRiscvScl180/rtl/__user_project_la_example.v' '/home/rpatel/vsdRiscvScl180/rtl/chip_io.v' '/home/rpatel/vsdRiscvScl180/rtl/mgmt_core.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_netlists.v' '/home/rpatel/vsdRiscvScl180/rtl/buff_flash_clkrst.v' '/home/rpatel/vsdRiscvScl180/rtl/ibex_all.v' '/home/rpatel/vsdRiscvScl180/rtl/mprj_io_buffer.v' '/home/rpatel/vsdRiscvScl180/rtl/manual_power_connections.v' '/home/rpatel/vsdRiscvScl180/rtl/pt3b02_wrapper.v' '/home/rpatel/vsdRiscvScl180/rtl/dummy_schmittbuf.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_clocking.v' '/home/rpatel/vsdRiscvScl180/rtl/pc3d21.v' '/home/rpatel/vsdRiscvScl180/rtl/user_id_programming.v' '/home/rpatel/vsdRiscvScl180/rtl/open_source.v' '/home/rpatel/vsdRiscvScl180/rtl/gpio_signal_buffering.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_logo.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_openframe.v' '/home/rpatel/vsdRiscvScl180/rtl/empty_macro.v' '/home/rpatel/vsdRiscvScl180/rtl/dummy_scl180_conb_1.v' '/home/rpatel/vsdRiscvScl180/rtl/user_defines.v' '/home/rpatel/vsdRiscvScl180/rtl/user_id_textblock.v' '/home/rpatel/vsdRiscvScl180/rtl/mgmt_protect_hv.v' '/home/rpatel/vsdRiscvScl180/rtl/debug_regs.v' '/home/rpatel/vsdRiscvScl180/rtl/housekeeping.v' '/home/rpatel/vsdRiscvScl180/rtl/gpio_defaults_block.v' '/home/rpatel/vsdRiscvScl180/rtl/spare_logic_block.v' '/home/rpatel/vsdRiscvScl180/rtl/scl180_macro_sparecell.v' '/home/rpatel/vsdRiscvScl180/rtl/digital_pll_controller.v' '/home/rpatel/vsdRiscvScl180/rtl/primitives.v' '/home/rpatel/vsdRiscvScl180/rtl/mgmt_core_wrapper.v' '/home/rpatel/vsdRiscvScl180/rtl/mprj_io.v' '/home/rpatel/vsdRiscvScl180/rtl/copyright_block.v' '/home/rpatel/vsdRiscvScl180/rtl/mprj_logic_high.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_motto.v' '/home/rpatel/vsdRiscvScl180/rtl/pc3d01.v' '/home/rpatel/vsdRiscvScl180/rtl/pads.v' '/home/rpatel/vsdRiscvScl180/rtl/pc3b03ed.v' '/home/rpatel/vsdRiscvScl180/rtl/__uprj_netlists.v' '/home/rpatel/vsdRiscvScl180/rtl/__openframe_project_wrapper.v' '/home/rpatel/vsdRiscvScl180/rtl/ring_osc2x13.v' '/home/rpatel/vsdRiscvScl180/rtl/gpio_control_block.v' '/home/rpatel/vsdRiscvScl180/rtl/gpio_logic_high.v' '/home/rpatel/vsdRiscvScl180/rtl/__user_analog_project_wrapper.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_core.v' '/home/rpatel/vsdRiscvScl180/rtl/housekeeping_spi.v' '/home/rpatel/vsdRiscvScl180/rtl/caravel_power_routing.v' 
+Detecting input file type automatically (-rtl or -netlist).
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/digital_pll_controller.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/ring_osc2x13.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/dummy_scl180_conb_1.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/copyright_block.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/caravel_logo.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/caravel_motto.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/open_source.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/user_id_textblock.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/caravel_core.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/mprj_io_buffer.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/manual_power_connections.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/empty_macro.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/copyright_block.v
+Warning: Overwriting design file '/home/rpatel/vsdRiscvScl180/rtl/copyright_block'. (DDB-24)
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/caravel_logo.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/caravel_motto.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/open_source.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/user_id_textblock.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/caravel_core.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/mprj_io_buffer.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/manual_power_connections.v
+Opening include file /home/rpatel/vsdRiscvScl180/rtl/empty_macro.v
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/rpatel/vsdRiscvScl180/rtl/clock_div.v
+Error:  /home/rpatel/vsdRiscvScl180/rtl/clock_div.v:47: The macro 'CLK_DIV' has not been defined. (VER-913)
+*** Presto compilation terminated with 1 errors. ***
+Error: Can't read 'verilog' files '/home/rpatel/vsdRiscvScl180/rtl/clock_div.v', '/home/rpatel/vsdRiscvScl180/rtl/digital_pll.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel.v', '/home/rpatel/vsdRiscvScl180/rtl/mprj2_logic_high.v', '/home/rpatel/vsdRiscvScl180/rtl/vsdcaravel.v', '/home/rpatel/vsdRiscvScl180/rtl/spiflash.v', '/home/rpatel/vsdRiscvScl180/rtl/picorv32.v', '/home/rpatel/vsdRiscvScl180/rtl/xres_buf.v', '/home/rpatel/vsdRiscvScl180/rtl/__user_project_gpio_example.v', '/home/rpatel/vsdRiscvScl180/rtl/constant_block.v', '/home/rpatel/vsdRiscvScl180/rtl/mgmt_protect.v', '/home/rpatel/vsdRiscvScl180/rtl/copyright_block_a.v', '/home/rpatel/vsdRiscvScl180/rtl/VexRiscv_MinDebugCache.v', '/home/rpatel/vsdRiscvScl180/rtl/gpio_signal_buffering_alt.v', '/home/rpatel/vsdRiscvScl180/rtl/__user_project_wrapper.v', '/home/rpatel/vsdRiscvScl180/rtl/__user_project_la_example.v', '/home/rpatel/vsdRiscvScl180/rtl/chip_io.v', '/home/rpatel/vsdRiscvScl180/rtl/mgmt_core.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_netlists.v', '/home/rpatel/vsdRiscvScl180/rtl/buff_flash_clkrst.v', '/home/rpatel/vsdRiscvScl180/rtl/ibex_all.v', '/home/rpatel/vsdRiscvScl180/rtl/mprj_io_buffer.v', '/home/rpatel/vsdRiscvScl180/rtl/manual_power_connections.v', '/home/rpatel/vsdRiscvScl180/rtl/pt3b02_wrapper.v', '/home/rpatel/vsdRiscvScl180/rtl/dummy_schmittbuf.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_clocking.v', '/home/rpatel/vsdRiscvScl180/rtl/pc3d21.v', '/home/rpatel/vsdRiscvScl180/rtl/user_id_programming.v', '/home/rpatel/vsdRiscvScl180/rtl/open_source.v', '/home/rpatel/vsdRiscvScl180/rtl/gpio_signal_buffering.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_logo.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_openframe.v', '/home/rpatel/vsdRiscvScl180/rtl/empty_macro.v', '/home/rpatel/vsdRiscvScl180/rtl/dummy_scl180_conb_1.v', '/home/rpatel/vsdRiscvScl180/rtl/user_defines.v', '/home/rpatel/vsdRiscvScl180/rtl/user_id_textblock.v', '/home/rpatel/vsdRiscvScl180/rtl/mgmt_protect_hv.v', '/home/rpatel/vsdRiscvScl180/rtl/debug_regs.v', '/home/rpatel/vsdRiscvScl180/rtl/housekeeping.v', '/home/rpatel/vsdRiscvScl180/rtl/gpio_defaults_block.v', '/home/rpatel/vsdRiscvScl180/rtl/spare_logic_block.v', '/home/rpatel/vsdRiscvScl180/rtl/scl180_macro_sparecell.v', '/home/rpatel/vsdRiscvScl180/rtl/digital_pll_controller.v', '/home/rpatel/vsdRiscvScl180/rtl/primitives.v', '/home/rpatel/vsdRiscvScl180/rtl/mgmt_core_wrapper.v', '/home/rpatel/vsdRiscvScl180/rtl/mprj_io.v', '/home/rpatel/vsdRiscvScl180/rtl/copyright_block.v', '/home/rpatel/vsdRiscvScl180/rtl/mprj_logic_high.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_motto.v', '/home/rpatel/vsdRiscvScl180/rtl/pc3d01.v', '/home/rpatel/vsdRiscvScl180/rtl/pads.v', '/home/rpatel/vsdRiscvScl180/rtl/pc3b03ed.v', '/home/rpatel/vsdRiscvScl180/rtl/__uprj_netlists.v', '/home/rpatel/vsdRiscvScl180/rtl/__openframe_project_wrapper.v', '/home/rpatel/vsdRiscvScl180/rtl/ring_osc2x13.v', '/home/rpatel/vsdRiscvScl180/rtl/gpio_control_block.v', '/home/rpatel/vsdRiscvScl180/rtl/gpio_logic_high.v', '/home/rpatel/vsdRiscvScl180/rtl/__user_analog_project_wrapper.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_core.v', '/home/rpatel/vsdRiscvScl180/rtl/housekeeping_spi.v', '/home/rpatel/vsdRiscvScl180/rtl/caravel_power_routing.v'. (UID-9)
+No designs were read
+# ========================================================================
+# Read Timing Constraints
+# ========================================================================
+puts "INFO: Reading timing constraints..."
+INFO: Reading timing constraints...
+read_sdc "$root_dir/synthesis/vsdcaravel.sdc"
+
+Reading SDC version 2.1...
+[INFO]: IO[4] is set as: SCK
+[INFO]: GPIOs mode is set as: OUT
+Warning: Can't find port 'clock' in design 'RAM128'. (UID-95)
+Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+[INFO]: System clock period: 25
+Warning: Can't find object 'chip_core/housekeeping/serial_clock' in design 'RAM128'. (UID-95)
+Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+Warning: Can't find object 'chip_core/housekeeping/serial_load' in design 'RAM128'. (UID-95)
+Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hk_serial_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hk_serial_load' in design 'RAM128'. (UID-95)
+Error: Value for list 'object_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hk_serial_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hk_serial_load' in design 'RAM128'. (UID-95)
+Error: Value for list 'object_list' must have 1 elements. (CMD-036)
+[INFO]: Clock transition range: 1 : 1.5
+Warning: Can't find port 'clock' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'clock' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[3]' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_or_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[4]' in design 'RAM128'. (UID-95)
+Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'hkspi_clk' in design 'RAM128'. (UID-95)
+Error: Value for list 'object_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'hkspi_clk' in design 'RAM128'. (UID-95)
+Error: Value for list 'object_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hk_serial_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hk_serial_load' in design 'RAM128'. (UID-95)
+Warning: Can't find clock 'hkspi_clk' in design 'RAM128'. (UID-95)
+Error: Value for list '-group' must have 1 elements. (CMD-036)
+[INFO]: Setting input delay to: 4
+[INFO]: Setting output delay to: 4
+[INFO]: Input transition range: 1 : 4
+[INFO]: Cap load range: 4 : 7
+Warning: Can't find ports matching 'mprj_io[*]' in design 'RAM128'. (UID-95)
+Error: Value for list 'objects' must have 1 elements. (CMD-036)
+Warning: Can't find ports matching 'mprj_io[*]' in design 'RAM128'. (UID-95)
+Error: Value for list 'objects' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[0]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[5]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[6]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[7]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[8]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[9]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[10]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[11]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[12]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[13]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[14]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[15]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[16]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[17]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[18]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[19]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[20]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[21]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[22]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[23]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[24]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[25]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[26]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[27]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[28]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[29]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[30]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[31]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[32]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[33]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[34]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[35]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[36]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[37]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'hkspi_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[1]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'hkspi_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[2]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'hkspi_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[3]' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[2]' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[2]' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[3]' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'mprj_io[3]' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[0]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[5]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[6]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[7]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[8]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[9]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[10]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[11]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[12]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[13]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[14]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[15]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[16]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[17]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[18]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[19]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[20]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[21]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[22]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[23]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[24]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[25]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[26]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[27]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[28]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[29]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[30]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[31]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[32]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[33]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[34]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[35]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[36]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+Warning: Can't find port 'mprj_io[37]' in design 'RAM128'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+[INFO]: Flash interface transition range: 4 : 6
+Warning: Can't find port 'flash_io1' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'flash_io1' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+[INFO]: Flash interface cap load range: 6 : 8
+Warning: Can't find port 'flash_csb' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_io0' in design 'RAM128'. (UID-95)
+Error: Value for list 'objects' must have 1 elements. (CMD-036)
+Warning: Can't find port 'flash_csb' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_io0' in design 'RAM128'. (UID-95)
+Error: Value for list 'objects' must have 1 elements. (CMD-036)
+[INFO]: Flash interface delay: input 4 output 4
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_csb' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_clk' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_io0' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'flash_io1' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'gpio' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find port 'gpio' in design 'RAM128'. (UID-95)
+Error: Value for list 'port_list' must have 1 elements. (CMD-036)
+Warning: Can't find clock 'clk' in design 'RAM128'. (UID-95)
+Warning: Can't find port 'gpio' in design 'RAM128'. (UID-95)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Current design is 'RAM128'.
+Warning: Can't find port 'resetb' in design 'RAM128'. (UID-95)
+Error: Value for list '-from' must have 1 elements. (CMD-036)
+Warning: Can't find port 'gpio' in design 'RAM128'. (UID-95)
+Error: Value for list '-from' must have 1 elements. (CMD-036)
+[INFO]: Setting derate factor to: 3.75 %
+1
+update_timing
+Information: Updating design information... (UID-85)
+1
+# ========================================================================
+# Elaborate Design
+# ========================================================================
+puts "INFO: Elaborating design..."
+INFO: Elaborating design...
+elaborate $top_module
+Error: Cannot find the design 'vsdcaravel' in the library 'WORK'. (LBR-0)
+0
+# Verify current design context
+if {[current_design] != $top_module} {
+    puts "WARNING: Current design is [current_design], switching to $top_module..."
+    current_design $top_module
+}
+Current design is 'RAM128'.
+Current design is 'RAM128'.
+WARNING: Current design is _sel3, switching to vsdcaravel...
+Error: Can't find design 'vsdcaravel'. (UID-109)
+Current design is 'RAM128'.
+{RAM128}
+# ========================================================================
+# Set Blackbox Attributes for RAM Modules
+# ========================================================================
+puts "INFO: Setting blackbox attributes for RAM modules..."
+INFO: Setting blackbox attributes for RAM modules...
+# Mark RAM128 as blackbox
+if {[sizeof_collection [get_designs -quiet RAM128]] > 0} {
+    set_attribute [get_designs RAM128] is_black_box true -quiet
+    set_dont_touch [get_designs RAM128]
+    puts "INFO: RAM128 marked as blackbox and protected"
+} else {
+    puts "WARNING: RAM128 design not found"
+}
+Information: Creating new attribute 'is_black_box' on design 'RAM128'. (UID-96)
+INFO: RAM128 marked as blackbox and protected
+# Mark RAM256 as blackbox
+if {[sizeof_collection [get_designs -quiet RAM256]] > 0} {
+    set_attribute [get_designs RAM256] is_black_box true -quiet
+    set_dont_touch [get_designs RAM256]
+    puts "INFO: RAM256 marked as blackbox and protected"
+} else {
+    puts "WARNING: RAM256 design not found"
+}
+INFO: RAM256 marked as blackbox and protected
+# Protect all instances of RAM modules from optimization
+puts "INFO: Protecting RAM module instances from optimization..."
+INFO: Protecting RAM module instances from optimization...
+foreach blackbox_ref {"RAM128" "RAM256"} {
+    set instances [get_cells -quiet -hierarchical -filter "ref_name == $blackbox_ref"]
+    if {[sizeof_collection $instances] > 0} {
+        set_dont_touch $instances
+        set inst_count [sizeof_collection $instances]
+        puts "INFO: Protected $inst_count instance(s) of $blackbox_ref"
+    } else {
+        puts "INFO: No instances of $blackbox_ref found in design"
+    }
+}
+INFO: No instances of RAM128 found in design
+INFO: No instances of RAM256 found in design
+# ========================================================================
+# Link Design
+# ========================================================================
+puts "INFO: Linking design..."
+INFO: Linking design...
+link
+
+  Linking design 'RAM128'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (2 designs)               /home/rpatel/vsdRiscvScl180/synthesis/RAM128.db, etc
+  tsl18cio250_min (library)   /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db
+  tsl18fs120_scl_ff (library) /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db
+
+1
+# ========================================================================
+# Uniquify and Flatten (Optional - Currently Commented Out)
+# ========================================================================
+# Note: These were commented out in the golden script
+# Uncomment if needed for your design
+#set_uniquify_design false
+#set_flatten false
+# ========================================================================
+# Compile Design
+# ========================================================================
+puts "INFO: Starting compilation with compile_ultra -incremental..."
+INFO: Starting compilation with compile_ultra -incremental...
+compile_ultra -incremental
+Loading db file '/home/Synopsys/tools/syn/T-2022.03-SP5/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+[SCL] 12/17/2025 19:01:25 Checking status for feature DC-Expert
+[SCL] 12/17/2025 19:01:25 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Checkout succeeded DC-Expert 2022.03
+[SCL] 12/17/2025 19:01:25 Checking status for feature DC-Ultra-Opt
+[SCL] 12/17/2025 19:01:25 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Checkout succeeded DC-Ultra-Opt 2022.03
+[SCL] 12/17/2025 19:01:25 Checking status for feature DC-Ultra-Features
+[SCL] 12/17/2025 19:01:25 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Checkout succeeded DC-Ultra-Features 2022.03
+[SCL] 12/17/2025 19:01:25 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Authorization succeeded DesignWare 2022.03
+[SCL] 12/17/2025 19:01:26 Checking status for feature DesignWare
+[SCL] 12/17/2025 19:01:26 PID:16325 Client:nanodc.iitgn.ac.in Server:27020@c2s.cdacb.in Checkout succeeded DesignWare 2022.03
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+[SCL] 12/17/2025 19:01:26 PID:16325 Client:nanodc.iitgn.ac.in Authorization failed DesignWare-Foundation-Ultra 2022.03
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | T-2022.03-DWBB_202203.4 |     *     |
+| Licensed DW Building Blocks        | T-2022.03-DWBB_202203.4 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+| Comand Line  | compile_ultra -incremental                                                        |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 0                                      |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 0                                      |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 1                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 0                                      |
+| Number of Dont Touch Cells                              | 0                                      |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Warning: IO pad 'pc3d00' is unusable: unknown logic function.  (OPT-1022)
+Loaded alib file './alib-52/tsl18cio250_min.db.alib' (placeholder)
+Loaded alib file './alib-52/tsl18fs120_scl_ff.db.alib'
+Warning: Operating condition tsl18cio250_min set on design RAM128 has different process,
+voltage and temperatures parameters than the parameters at which target library 
+tsl18fs120_scl_ff is characterized. Delays may be inaccurate as a result. (OPT-998)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00       0.0      0.00       0.0       0.0                              0.0000
+    0:00:00       0.0      0.00       0.0       0.0                              0.0000
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+    0:00:01       0.0      0.00       0.0       0.0                              0.0000
+Loading db file '/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db'
+Loading db file '/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+[SCL] 12/17/2025 19:01:28 PID:16325 Client:nanodc.iitgn.ac.in checkin electromigration_drc 
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+1
+# ========================================================================
+# Generate Reports
+# ========================================================================
+puts "INFO: Generating synthesis reports..."
+INFO: Generating synthesis reports...
+# Original reports from golden script
+report_qor > "$report_dir/qor_post_synth.rpt"
+report_area > "$report_dir/area_post_synth.rpt"
+report_power > "$report_dir/power_post_synth.rpt"
+# Additional reports
+report_timing -max_paths 10 > "$report_dir/timing_post_synth.rpt"
+report_constraint -all_violators > "$report_dir/constraints_post_synth.rpt"
+# Blackbox modules report
+puts "INFO: Generating blackbox module report..."
+INFO: Generating blackbox module report...
+set bb_report [open "$report_dir/blackbox_modules.rpt" w]
+file15
+puts $bb_report "========================================"
+puts $bb_report "Blackbox Modules Report"
+puts $bb_report "========================================"
+puts $bb_report ""
+puts $bb_report "Date: [date]"
+puts $bb_report "Design: $top_module"
+puts $bb_report ""
+foreach bb_module {"RAM128" "RAM256"} {
+    puts $bb_report "----------------------------------------"
+    puts $bb_report "Module: $bb_module"
+    puts $bb_report "----------------------------------------"
+    
+    # Check if design exists
+    set design_exists [sizeof_collection [get_designs -quiet $bb_module]]
+    if {$design_exists > 0} {
+        puts $bb_report "  Design Status: PRESENT (blackbox)"
+        
+        # Check for instances
+        set instances [get_cells -quiet -hierarchical -filter "ref_name == $bb_module"]
+        set inst_count [sizeof_collection $instances]
+        
+        if {$inst_count > 0} {
+            puts $bb_report "  Instance Count: $inst_count"
+            puts $bb_report "  Instances:"
+            foreach_in_collection inst $instances {
+                puts $bb_report "    - [get_object_name $inst]"
+            }
+        } else {
+            puts $bb_report "  Instance Count: 0 (not instantiated)"
+        }
+    } else {
+        puts $bb_report "  Design Status: NOT FOUND"
+        puts $bb_report "  Instance Count: N/A"
+    }
+    puts $bb_report ""
+}
+puts $bb_report "========================================"
+puts $bb_report "End of Blackbox Report"
+puts $bb_report "========================================"
+close $bb_report
+puts "INFO: Blackbox report written to: $report_dir/blackbox_modules.rpt"
+INFO: Blackbox report written to: /home/rpatel/vsdRiscvScl180/synthesis/report/blackbox_modules.rpt
+# ========================================================================
+# Write Output Files
+# ========================================================================
+puts "INFO: Writing output files..."
+INFO: Writing output files...
+# Write Verilog netlist (as in golden script)
+write -format verilog -hierarchy -output $output_file
+Writing verilog file '/home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.v'.
+1
+puts "INFO: Netlist written to: $output_file"
+INFO: Netlist written to: /home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.v
+# Write DDC format for place-and-route
+write -format ddc -hierarchy -output "$root_dir/synthesis/output/vsdcaravel_synthesis.ddc"
+Writing ddc file '/home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.ddc'.
+1
+puts "INFO: DDC written to: $root_dir/synthesis/output/vsdcaravel_synthesis.ddc"
+INFO: DDC written to: /home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.ddc
+# Write SDC with actual timing constraints
+write_sdc "$root_dir/synthesis/output/vsdcaravel_synthesis.sdc"
+1
+puts "INFO: SDC written to: $root_dir/synthesis/output/vsdcaravel_synthesis.sdc"
+INFO: SDC written to: /home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.sdc
+# ========================================================================
+# Summary
+# ========================================================================
+puts ""
+
+puts "========================================"
+========================================
+puts "Synthesis Complete!"
+Synthesis Complete!
+puts "========================================"
+========================================
+puts "Output netlist: $output_file"
+Output netlist: /home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.v
+puts "DDC file: $root_dir/synthesis/output/vsdcaravel_synthesis.ddc"
+DDC file: /home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.ddc
+puts "SDC file: $root_dir/synthesis/output/vsdcaravel_synthesis.sdc"
+SDC file: /home/rpatel/vsdRiscvScl180/synthesis/output/vsdcaravel_synthesis.sdc
+puts "Reports directory: $report_dir"
+Reports directory: /home/rpatel/vsdRiscvScl180/synthesis/report
+puts "Blackbox stub file: $blackbox_file"
+Blackbox stub file: /home/rpatel/vsdRiscvScl180/synthesis/memory_blackbox_stubs.v
+puts ""
+
+puts "NOTE: The following modules are preserved as blackboxes:"
+NOTE: The following modules are preserved as blackboxes:
+puts "  - RAM128 (Memory macro)"
+  - RAM128 (Memory macro)
+puts "  - RAM256 (Memory macro)"
+  - RAM256 (Memory macro)
+puts "These modules must be replaced with actual macros during P&R"
+These modules must be replaced with actual macros during P&R
+puts "========================================"
+========================================
+puts ""
+
+# Uncomment to exit dc_shell automatically
+# exit
+dc_shell> 
