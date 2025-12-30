@@ -33,12 +33,13 @@ This repository documents my comprehensive journey through the advanced phase of
 
 | **Domain** | **Key Achievements** | **Impact** |
 |------------|---------------------|------------|
-| **📝 Firmware & RTL Integration** | Analyzed and validated firmware-to-hardware signal flow from C code through Wishbone bus to physical pads | Identified critical GPIO register mapping incompatibilities between software (defs.h) and RTL implementation |
-| **🔄 PDK Migration** | Led complete transition from Sky130 PDK to SCL180 PDK with library configuration, synthesis flow adaptation, and physical design integration | Established reproducible methodology for multi-PDK SoC portability |
-| **🧪 RTL-GLS Correlation** | Achieved 100% functional equivalence validation between RTL and gate-level simulations using both Icarus Verilog and Synopsys VCS | Ensured design integrity across synthesis transformations with zero X-propagation |
 | **🔌 Padframe Development** | Engineered SCL180-compatible padframe architecture with proper signal routing, pad cell integration, and I/O ring implementation | Created silicon-ready physical interface for SoC-to-package connectivity |
 | **⚖️ Processor Comparison** | Conducted architectural analysis comparing PicoRV32 (modular, 830 lines) vs VexRiscv (monolithic, 8473 lines) implementations | Documented maintainability trade-offs affecting tapeout readiness and debug efficiency |
 | **🔧 VexRiscv Adaptation** | Modified and validated VexRiscv processor RTL for seamless integration with SCL180 PDK constraints and Caravel infrastructure | Resolved compilation issues, timing constraints, and interface compatibility challenges |
+| **📝 Firmware & RTL Integration** | Analyzed and validated firmware-to-hardware signal flow from C code through Wishbone bus to physical pads | Identified critical GPIO register mapping incompatibilities between software (defs.h) and RTL implementation |
+| **🔄 PDK Migration** | Led complete transition from Sky130 PDK to SCL180 PDK with library configuration, synthesis flow adaptation, and physical design integration | Established reproducible methodology for multi-PDK SoC portability |
+| **🧪 RTL-GLS Correlation** | Achieved 100% functional equivalence validation between RTL and gate-level simulations using both Icarus Verilog and Synopsys VCS | Ensured design integrity across synthesis transformations with zero X-propagation |
+
 
 ---
 
